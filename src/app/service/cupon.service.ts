@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Config } from '../interfaces/configInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CuponService {
     this.baseUrl = 'http://localhost:3000/'
   }
 
-  getSecuentialNumbers(pConfig): Promise<string[]> {
+  getSecuentialNumbers(pConfig: Config): Promise<string[]> {
     const body = pConfig
     return this.httpClient.post<string[]>(this.baseUrl, body).toPromise()
   }

@@ -2,15 +2,19 @@
   <h1 class="text-center mt-4 font-weight-bold">Generador de cupones</h1>
 
   <div class="p-5">
-
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Cantidad de cupones</label>
         <input type="number" class="form-control" formControlName="cantidad">
-        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('required') && configForm.get('cantidad').touched">*Éste campo es
-          requerido</p>
-        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('min') && configForm.get('cantidad').touched">*Debes introducir un número positivo</p>
-        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('max') && configForm.get('cantidad').touched">*Debes introducir un número menor a 200</p>
+        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('required') && configForm.get('cantidad').touched">
+          *Éste campo es requerido
+        </p>
+        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('min') && configForm.get('cantidad').touched">
+          *Debes introducir un número positivo
+        </p>
+        <p class="text-danger" *ngIf="configForm.get('cantidad').hasError('max') && configForm.get('cantidad').touched">
+          *Debes introducir un número menor a 200
+        </p>
       </div>
       <div class="form-group">
         <label>Tipo de algoritmo</label>
@@ -20,24 +24,29 @@
           <option value="alfa secuencial">Numeros alfanuméricos secuenciales</option>
           <option value="alfa random">Numeros alfanuméricos aleatoreos</option>
         </select>
-        <p class="text-danger" *ngIf="configForm.get('algoritmo').hasError('required') && configForm.get('algoritmo').touched">*Éste campo es
-          requerido</p>
-
+        <p class="text-danger" *ngIf="configForm.get('algoritmo').hasError('required') && configForm.get('algoritmo').touched">
+          *Éste campo es requerido
+        </p>
       </div>
       <div class="form-group">
         <label>Cantidad de dígitos en el cupon</label>
         <input type="number" class="form-control" formControlName="longitud">
-        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('required') && configForm.get('longitud').touched">*Éste campo es
-          requerido</p>
-        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('min') && configForm.get('longitud').touched">*Debes introducir un número positivo</p>
-        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('max') && configForm.get('longitud').touched">*Debes introducir un número menor a 9</p>
+
+        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('required') && configForm.get('longitud').touched">
+          *Éste campo es requerido
+        </p>
+        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('min') && configForm.get('longitud').touched">
+          *Debes introducir un número positivo
+        </p>
+        <p class="text-danger" *ngIf="configForm.get('longitud').hasError('max') && configForm.get('longitud').touched">
+          *Debes introducir un número menor a 9
+        </p>
+
       </div>
       <input [disabled]="!configForm.valid" class="btn btn-block btn-success" type="submit" value="Generar cupones">
     </form>
     <button [disabled]="!cuponList" (click)="deleteCupons()" class=" mt-3 btn btn-warning btn-block">Borrar cupones</button>
   </div>
-
-
   <div class="p-5">
     <h3 class="text-center">Cupones generados</h3>
     <table class="table table-striped">
