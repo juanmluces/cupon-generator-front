@@ -37,9 +37,11 @@ export class AppComponent implements OnInit {
       this.deleteCupons()
       console.log(error)
     }
+    this.configForm.reset()
   }
 
   deleteCupons(): void {
+
     this.cuponList = []
   }
 
